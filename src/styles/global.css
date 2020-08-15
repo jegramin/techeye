@@ -1,0 +1,8 @@
+@font-face {
+    src: url(../../assets/UniQAIDAR_Blawkrawe005.ttf);
+    font-family: blawkrawe;
+}
+
+body p {
+    font-family: blawkrawe;
+}

@@ -1,0 +1,37 @@
+@font-face {
+  src: url(../../assets/UniQAIDAR_Blawkrawe005.ttf);
+  font-family: blawkrawe;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px 1fr 400px;
+  font-family: blawkrawe;
+}
+.content {
+  grid-column: 1 / 10;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 500px;
+}
+/* .content::after {
+    content: "";
+    flex: auto;
+} */
+.advertizings {
+  background-color: #094067;
+  height: 400px;
+  width: 150%;
+}
+
+@media all and (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 650px;
+  }
+  .content {
+    grid-column: 1 / -1;
+  }
+}

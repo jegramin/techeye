@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+}
+.gradWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  grid-column: 1 / 10;
+  width: 90%;
+  margin: 0 0 40px auto;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  min-height: 500px;
+}
+/* .content::after {
+    content: "";
+    flex: auto; */
+/* } */
+.cardContainer {
+  margin: auto;
+  width: 300px;
+}
+.card {
+  /* margin-right: 5px; */
+  height: 250px;
+  color: white;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.808);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+.card * {
+  align-self: flex-end;
+  margin: 10px;
+  color: white;
+}
+.card .cardCategory {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+  /* margin: 10px; */
+}
+
+.cardCategory p {
+  border-radius: 5px;
+  padding: 2px 10px 3px 10px;
+  background-color: #094067;
+  font-size: 12px;
+  color: white;
+  margin: 1px 2px 2px 2px;
+}
+.wrapper {
+  flex: 0 0 33.33333%;
+  /* flex: 1; */
+  /* width: 250px; */
+  margin: 20px 0px;
+  text-align: right;
+}
+.listWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 20px;
+}
+.listWrapper img {
+  width: 300px;
+}
+.listContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 10px 0 30px;
+  text-align: right;
+}
+.listContent h3,
+.listContent p {
+  margin: 5px 0;
+}
+.card h4 {
+  margin-bottom: 0;
+}
+.read {
+  display: flex;
+  justify-self: flex-end;
+}
+.author p:nth-child(2) {
+  margin-left: 20px;
+}
+.author {
+  display: flex;
+  justify-self: flex-end;
+  margin-top: 0;
+}
+.author img {
+  height: 15px;
+  margin: 7px 0;
+}
+.author p {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  color: #eee;
+  font-size: 14px;
+}
+a p {
+  color: #3da9fc;
+}
+.read img {
+  height: 10px;
+  width: 30px;
+  margin-top: 11px;
+}
+.btns {
+  /* margin-right: auto; */
+  /* margin-left: 30px; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btns h3 {
+  margin: 0 0 0 15px;
+}
+button {
+  border-radius: 50px;
+  border: none;
+  height: 22px;
+  width: 22px;
+  outline: none;
+}
+button:first-child {
+  margin-right: 7px;
+}
+button img {
+  height: 10px;
+}
+
+@media all and (max-width: 600px) {
+  .btns {
+    visibility: hidden;
+  }
+  .content {
+    grid-column: 1 / -1;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 0 40px 0;
+  }
+  .card {
+    margin: 0;
+  }
+  .cardContainer {
+    margin: auto;
+    width: 100%;
+  }
+  .wrapper {
+    flex: 1;
+    margin: 15px 0px;
+  }
+}

@@ -1,21 +1,26 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import Slideshow from "../components/slideshow"
 import Layout from "../components/layout"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
+import News from "../components/news"
+import Learning from "../components/learning"
+import indexStyles from "../components/layout.module.css"
+import Tag from "../components/tag"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <Slideshow />
+    <News />
+    <Learning />
+    <Tag />
+    {/* <div className={indexStyles.advertizings}>
+      <p>لە ماڵپەڕی تێك ئای ڕێكلامەکانت بکەبۆ گەیشتن بە ئامانجە ڕاستەکان</p>
+      <button>با قسە بکەین</button>
+      <button>زانیاری زیاتر</button>
+    </div> */}
   </Layout>
 )
 

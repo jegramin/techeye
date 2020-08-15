@@ -1,0 +1,96 @@
+.container {
+  /* width: 90%; */
+  margin: 0 0 40px auto;
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "l e a"
+    "b c d";
+}
+div:first-child {
+  grid-area: l;
+}
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+  color: #094067;
+  margin-top: 80px;
+}
+.header h3 {
+  margin: auto 0px;
+}
+.header img {
+  height: 25px;
+}
+.header a {
+  margin: 0 auto 0 107px;
+}
+.wrapper {
+  width: 100%;
+}
+.card {
+  margin: auto;
+  width: 100%;
+  height: 250px;
+  color: white;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.808);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.card * {
+  align-self: flex-end;
+  margin: 10px;
+  color: white;
+}
+.card h4 {
+  margin-bottom: 0;
+}
+.author {
+  display: flex;
+  justify-self: flex-end;
+  margin-top: 0;
+}
+.author img {
+  height: 15px;
+  margin: 7px 0;
+}
+.author p {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  color: #eee;
+  font-size: 14px;
+}
+
+@media all and (max-width: 600px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    margin: 15px auto;
+    width: 100%;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 10px 0;
+    color: #094067;
+  }
+  .header img {
+    margin-right: 22px;
+    height: 25px;
+  }
+  .header a {
+    margin: 0 auto 0 22px;
+  }
+  .header > img:first-child {
+    margin: 0 auto 0 20px;
+  }
+}
