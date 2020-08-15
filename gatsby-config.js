@@ -42,7 +42,7 @@ module.exports = {
       options: {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
-        url: "http://localhost:8080/wordpress/graphql",
+        url: "http://e0d4a5d81b72.ngrok.io/wordpress/graphql",
       },
     },
     {
