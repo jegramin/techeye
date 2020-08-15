@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Slideshow from "../components/slideshow"
+import Slideshow from "../components/slideShow"
 import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
@@ -12,7 +12,7 @@ import Tag from "../components/tag"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    {/* <Slideshow /> */}
+    <Slideshow />
     <News />
     <Learning />
     <Tag />
