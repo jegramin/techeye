@@ -12,7 +12,7 @@ import Tag from "../components/tag"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Slideshow />
+    {/* <Slideshow /> */}
     <News />
     <Learning />
     <Tag />
