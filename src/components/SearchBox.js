@@ -5,10 +5,7 @@ let algoliasearch, autocomplete, client, index
 if (typeof window !== "undefined") {
   algoliasearch = require("algoliasearch/lite")
   autocomplete = require("autocomplete.js")
-  client = algoliasearch(
-    process.env.production.GATSBY_ALGOLIA_APP_ID,
-    process.env.production.GATSBY_ALGOLIA_SEARCH_API_KEY
-  )
+  client = algoliasearch(GATSBY_ALGOLIA_APP_ID, GATSBY_ALGOLIA_SEARCH_API_KEY)
   index = client.initIndex(process.env.GATSBY_ALGOLIA_INDEX_NAME)
 }
 function newHitsSource(index, params) {
