@@ -60,8 +60,7 @@ module.exports = {
         color: `tomato`,
         // Disable the loading spinner.
         showSpinner: true,
-        easing: "ease",
-        speed: 1800,
+        minimum: 0.0001,
       },
     },
     // {
