@@ -48,13 +48,14 @@ div:first-child {
   text-align: right;
   position: relative;
   z-index: -1;
+  -webkit-transition: -webkit-filter 300ms linear;
 }
 .card * {
   align-self: flex-end;
   margin: 10px;
   color: white;
 }
-.card:hover {
+.container a:hover .card {
   filter: brightness(110%) contrast(110%);
 }
 .card .cardCategory {

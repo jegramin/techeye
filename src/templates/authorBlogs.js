@@ -98,7 +98,7 @@ const Author = props => {
             {/* <p>{edge.node.categories.edges[0].node.name}</p> */}
             <div className={blogStyles.listContent}>
               <h3>{edge.node.title}</h3>
-              <div className={blogStyles.author}>
+              <div className={blogStyles.listAuthor}>
                 <p>{getTimeDiff(edge.node.date)}</p>
                 <p>{edge.node.author.node.name}</p>
                 {/* <img src={User}/> */}

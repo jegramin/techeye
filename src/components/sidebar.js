@@ -26,9 +26,11 @@ const Sidebar = () => {
 
   const openModal = () => {
     modalRef.current.openModal()
+    setHighlighted(true)
   }
   const closeModal = () => {
     modalRef.current.closeModal()
+    setHighlighted(false)
   }
   const deleteSubMenu = () => {
     setHasModal(false)
@@ -130,7 +132,13 @@ const Sidebar = () => {
                 subMenu.label === edge.node.label &&
                 highlighted &&
                 hasModal
-                  ? { backgroundColor: "rgba(9, 64, 103, 0.03)" }
+                  ? {
+                      background: "rgb(218, 218, 218)",
+                      background: `linear-gradient(
+                      90deg,
+                      rgba(215, 215, 215, 0.4) 0%,
+                      rgba(255, 255, 255, 0) 68%`,
+                    }
                   : {}
               }
               className={sidbarStyles.categories}
@@ -139,10 +147,10 @@ const Sidebar = () => {
                 // !(subMenu && subMenu.label === edge.node.label && hasModal) &&
                 //   closeModal()
                 // !edge.node.childItems.edges[0] && setHasModal(false)
-                setHighlighted(false)
+                // setHighlighted(false)
               }}
               onMouseLeave={() => {
-                setHighlighted(true)
+                // setHighlighted(true)
               }}
             >
               {/* <Link to={`/category/${edge.node.slug}`} className={sidbarStyles.link}> */}

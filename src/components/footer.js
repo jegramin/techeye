@@ -48,22 +48,19 @@ const Footer = () => {
         <div className={footerStyles.mobileApp}>
           <GooglePlayStore />
           <AppStore />
-        </div>
-      </div>
-
-      <div className={footerStyles.footer}>
-        <div className={footerStyles.iconsWrapper}>
-          <div className={footerStyles.logoContainer}>
-            <InstagramLogo />
-          </div>
-          <div className={footerStyles.logoContainer}>
-            <YoutubeLogo />
-          </div>
-          <div className={footerStyles.logoContainer}>
-            <TwitterLogo />
-          </div>
-          <div className={footerStyles.logoContainer}>
-            <FacebookLogo />
+          <div className={footerStyles.iconsWrapper}>
+            <div className={footerStyles.logoContainer}>
+              <InstagramLogo />
+            </div>
+            <div className={footerStyles.logoContainer}>
+              <YoutubeLogo />
+            </div>
+            <div className={footerStyles.logoContainer}>
+              <TwitterLogo />
+            </div>
+            <div className={footerStyles.logoContainer}>
+              <FacebookLogo />
+            </div>
           </div>
         </div>
       </div>

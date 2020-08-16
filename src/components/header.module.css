@@ -20,7 +20,8 @@
 .iconsWrapper {
   display: flex;
   flex-direction: row-reverse;
-  margin: 0 40px 0 auto;
+  flex: auto;
+  margin: 0 10px 0 auto;
 }
 .logoContainer {
   width: 35px;
@@ -32,16 +33,30 @@
   align-items: center;
   margin: 5px 8px;
 }
-.logoContainer svg {
+.magnifierContainer {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(9, 64, 103, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 8px 5px 130px;
+}
+.logoContainer svg,
+.magnifierContainer svg {
   height: 20px;
 }
-.logoContainer:hover path {
+.logoContainer:hover path,
+.magnifierContainer:hover path {
   stroke: white;
 }
-.logoContainer:hover {
+.logoContainer:hover,
+.magnifierContainer:hover {
   background-color: #094067;
 }
-.logoContainer path {
+.logoContainer path,
+.magnifierContainer path {
   stroke: #094067;
 }
 .burger {

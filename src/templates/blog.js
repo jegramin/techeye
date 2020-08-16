@@ -110,11 +110,13 @@ const Blog = props => {
           className={blogStyles.featuredImage}
           src={props.data.wpgraphql.post.featuredImage.node.sourceUrl}
         />
-        <p
-          dangerouslySetInnerHTML={{
-            __html: props.data.wpgraphql.post.content,
-          }}
-        ></p>
+        <div className={blogStyles.contentContainer}>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: props.data.wpgraphql.post.content,
+            }}
+          ></p>
+        </div>
         {props.data.wpgraphql.post.categories.edges[0] && (
           <div className={blogStyles.categories}>
             {props.data.wpgraphql.post.categories.edges.map((edge, key) => {

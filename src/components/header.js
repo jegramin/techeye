@@ -72,7 +72,10 @@ const Header = () => {
       </div>
 
       <div className={headerStyles.iconsWrapper}>
-        <div className={headerStyles.logoContainer} onClick={() => openModal()}>
+        <div
+          className={headerStyles.magnifierContainer}
+          onClick={() => openModal()}
+        >
           <Magnifier />
         </div>
         <div className={headerStyles.logoContainer}>

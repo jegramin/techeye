@@ -1,5 +1,5 @@
 .grandWrapper {
-  height: 1130px;
+  height: 960px;
   grid-column: 10/ -1;
   display: flex;
   position: sticky;
@@ -42,7 +42,12 @@
   padding: 5px 0;
 }
 .categories:hover {
-  background-color: #09406708;
+  background: rgb(218, 218, 218);
+  background: linear-gradient(
+    90deg,
+    rgba(215, 215, 215, 0.4) 0%,
+    rgba(255, 255, 255, 0) 68%
+  );
 }
 .learning {
   background-image: url(../images/learning.svg);

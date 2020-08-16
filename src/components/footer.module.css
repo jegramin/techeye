@@ -1,11 +1,16 @@
 .footerWrapper {
   grid-column: 1 / -1;
   grid-row: 3 / -1;
-  background-color: white;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: rgb(221, 221, 221);
+  background: linear-gradient(
+    9deg,
+    rgba(221, 221, 221, 1) 0%,
+    rgba(255, 255, 255, 1) 68%
+  );
 }
 .header {
   display: flex;
@@ -19,18 +24,18 @@
 .mobileApp {
   display: flex;
   flex-direction: column;
+  height: 180px;
   /* margin-top: 15px; */
+}
+.mobileApp div {
+  margin-top: auto;
 }
 .mobileApp svg {
   width: 139px;
   height: 50px;
   cursor: pointer;
+  align-self: center;
   /* margin-top: -35px; */
-}
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 30px 40px 30px;
 }
 .iconsWrapper {
   display: flex;

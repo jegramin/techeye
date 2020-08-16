@@ -33,11 +33,15 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
+  -webkit-transition: -webkit-filter 150ms linear;
 }
 .card * {
   align-self: flex-end;
   margin: 10px;
   color: white;
+}
+.cardContainer a:hover .card {
+  filter: brightness(110%) contrast(110%);
 }
 .card .cardCategory {
   position: absolute;
@@ -90,23 +94,36 @@ body {
   display: flex;
   justify-self: flex-end;
 }
-.author p:nth-child(2) {
+.author p:nth-child(2),
+.listAuthor p:nth-child(2) {
   margin-left: 20px;
 }
-.author {
+.author,
+.listAuthor {
   display: flex;
   justify-self: flex-end;
   margin-top: 0;
 }
-.author img {
+.author img,
+.listAuthor img {
   height: 15px;
   margin: 7px 0;
+}
+.listAuthor p {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  color: #5f6c7b;
+  font-size: 14px;
 }
 .author p {
   margin-top: 0px;
   margin-bottom: 2px;
   color: #eee;
   font-size: 14px;
+}
+.author p:nth-child(2),
+.listAuthor p:nth-child(2) {
+  color: #3da9fc;
 }
 a p {
   color: #3da9fc;
