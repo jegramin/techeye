@@ -106,18 +106,18 @@
 
 @media all and (max-width: 600px) {
   .news {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
-    right: 50%;
-    transform: translate(50%, 0%);
+    right: 0%;
+    /* transform: translate(50%, 0%); */
     margin: auto;
     width: 100%;
     font-size: 12px;
+    /* border-top: 1px solid lightgray; */
   }
-  .news span {
-    display: none;
+  .news ul li {
+    margin-right: 20px;
   }
-
   .news ul {
     float: none;
     padding-left: 0;

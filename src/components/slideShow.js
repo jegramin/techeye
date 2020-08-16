@@ -47,7 +47,7 @@ const Slideshow = () => {
 
   return (
     <div className={tagStyles.wrapper}>
-      <Link to={`/in/slideshow`}>
+      <Link to={`/in/tags/slideshow`}>
         <div className={tagStyles.header}>
           <More />
           <h3>بابەتی هەڵبژێردراو</h3>

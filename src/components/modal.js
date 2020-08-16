@@ -19,10 +19,9 @@ const Modal = forwardRef((props, ref) => {
   const closeModal = () => {
     setDisplay(false)
   }
-
   if (display) {
     return (
-      <div className={modalStyles.modalWrapper}>
+      <div className={modalStyles.modalWrapper} style={props.wrapper}>
         {/* <div onClick={closeModal} className={modalStyles.modalBackdrop}/> */}
         <div
           className={modalStyles.modalBox}
@@ -34,7 +33,7 @@ const Modal = forwardRef((props, ref) => {
             src={Close}
             onClick={() => {
               closeModal()
-              props.deleteSubMenu()
+              props.deleteSubMenu && props.deleteSubMenu()
             }}
           />
           {props.children}

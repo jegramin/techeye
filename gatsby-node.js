@@ -52,6 +52,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             node {
               slug
               databaseId
+              uri
             }
           }
         }
@@ -61,7 +62,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   PostsResults.data.wpgraphql.categories.edges.forEach(edge => {
     createPage({
       component: postsTemplate,
-      path: `/in/${edge.node.slug}`,
+      path: `${edge.node.uri}`,
       context: {
         databaseId: edge.node.databaseId,
         categoryId: edge.node.databaseId,
@@ -78,6 +79,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             node {
               slug
               databaseId
+              uri
             }
           }
         }
@@ -87,7 +89,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   tagResults.data.wpgraphql.tags.edges.forEach(edge => {
     createPage({
       component: tagsTemplate,
-      path: `/in/${edge.node.slug}`,
+      path: `${edge.node.uri}`,
       context: {
         databaseId: edge.node.databaseId,
         tagId: edge.node.databaseId,

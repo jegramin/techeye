@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import headerStyles from "./header.module.css"
@@ -11,8 +11,13 @@ import FacebookLogo from "../../assets/icon-facebook.svg"
 import Burger from "../images/burger.svg"
 import Logo from "../images/sidebarLogo.svg"
 import Clock from "../../assets/clock.svg"
+import Magnifier from "../../assets/search.svg"
+import Modal from "./modal"
+import Search from "./SearchBox"
 
 const Header = () => {
+  const modalRef = useRef()
+
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -23,6 +28,13 @@ const Header = () => {
     }
   `)
 
+  const openModal = () => {
+    modalRef.current.openModal()
+  }
+  const closeModal = () => {
+    modalRef.current.closeModal()
+  }
+
   function slidSidebar() {
     const sidebar = document.getElementById("sidebarWrapper")
     sidebar.classList.toggle(sidbarStyles.sidebarActive)
@@ -30,16 +42,39 @@ const Header = () => {
 
   return (
     <header className={headerStyles.header}>
-      <Clock />
-      <Ticker />
-      <div onClick={() => slidSidebar()} className={headerStyles.burger}>
-        <img src={Burger} />
-        <Link to="/">
-          <img src={Logo} />
-          <p>TECH EYE</p>
-        </Link>
+      <Modal
+        ref={modalRef}
+        wrapper={{
+          marginLeft: 0,
+          marginRight: 0,
+          marginTop: 130,
+          position: "fixed",
+          width: "48%",
+          zIndex: 20,
+          transform: "translate(-9%, 165px)",
+        }}
+      >
+        {/* {subMenu && <h3>{subMenu.label}</h3>} */}
+        <Search />
+      </Modal>
+      <div className={headerStyles.titlebar}>
+        <div className={headerStyles.ticker}>
+          <Ticker />
+          <Clock className={headerStyles.clock} />
+        </div>
+        <div onClick={() => slidSidebar()} className={headerStyles.burger}>
+          <img src={Burger} />
+          <Link to="/">
+            <img src={Logo} />
+            <p>TECH EYE</p>
+          </Link>
+        </div>
       </div>
+
       <div className={headerStyles.iconsWrapper}>
+        <div className={headerStyles.logoContainer} onClick={() => openModal()}>
+          <Magnifier />
+        </div>
         <div className={headerStyles.logoContainer}>
           <InstagramLogo />
         </div>

@@ -47,7 +47,7 @@ const Tag = () => {
 
   return (
     <div className={tagStyles.wrapper}>
-      <Link to={`/in/important`}>
+      <Link to={`/in/tags/important`}>
         <div className={tagStyles.header}>
           <More />
           <h3>گرنگترین بابەتەکان</h3>

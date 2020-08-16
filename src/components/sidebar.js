@@ -43,6 +43,7 @@ const Sidebar = () => {
             node {
               title
               label
+              path
               cssClasses
               childItems {
                 edges {
@@ -54,6 +55,7 @@ const Sidebar = () => {
                         node {
                           label
                           title
+                          path
                         }
                       }
                     }
@@ -89,7 +91,7 @@ const Sidebar = () => {
                 >
                   {edge.node.childItems.edges.map((edge, key) => {
                     return (
-                      <Link to={`/in/${edge.node.title}`} key={key}>
+                      <Link to={`${edge.node.path}`} key={key}>
                         <li className={sidbarStyles.subMenuLabels}>
                           {edge.node.label}
                         </li>
@@ -133,33 +135,34 @@ const Sidebar = () => {
               }
               className={sidbarStyles.categories}
               onMouseEnter={() => {
-                setSubMenu(edge.node)
-                !(subMenu && subMenu.label === edge.node.label && hasModal) &&
-                  closeModal()
-                !(subMenu && subMenu.label === edge.node.label && hasModal) &&
-                  setHasModal(false)
+                edge.node.childItems.edges[0] && setSubMenu(edge.node)
+                // !(subMenu && subMenu.label === edge.node.label && hasModal) &&
+                //   closeModal()
+                // !edge.node.childItems.edges[0] && setHasModal(false)
                 setHighlighted(false)
               }}
-              onMouseonLeave={() => {
-                closeModal()
+              onMouseLeave={() => {
+                setHighlighted(true)
               }}
             >
               {/* <Link to={`/category/${edge.node.slug}`} className={sidbarStyles.link}> */}
               <div
                 className={sidbarStyles.category}
-                onMouseEnter={() => {
-                  hasModal ? openModal() : navigate("/")
-                  setHighlighted(true)
-                }}
                 onClick={() => {
-                  setSubMenu(edge.node)
-                  !(
-                    subMenu &&
-                    subMenu.label === edge.node.label &&
-                    subMenu &&
-                    subMenu.childItems.edges[0]
-                  ) && navigate("/")
+                  edge.node.childItems.edges[0]
+                    ? openModal()
+                    : navigate(edge.node.path)
+                  edge.node.childItems.edges[0] && setHighlighted(true)
                 }}
+                // onClick={() => {
+                //   setSubMenu(edge.node)
+                //   !(
+                //     subMenu &&
+                //     subMenu.label === edge.node.label &&
+                //     subMenu &&
+                //     subMenu.childItems.edges[0]
+                //   ) && navigate("/")
+                // }}
               >
                 <div
                   className={sidbarStyles[edge.node.cssClasses]}
@@ -217,7 +220,7 @@ const Sidebar = () => {
                 <p>پەیوەندی</p>
               </div>
             </div>
-            <div
+            {/* <div
               className={sidbarStyles.categories}
               style={
                 subMenu && subMenu.label === "گەڕان"
@@ -254,7 +257,7 @@ const Sidebar = () => {
                 ></div>
                 <p className={sidbarStyles.searchLabel}>گەڕان</p>
               </div>
-            </div>
+            </div> */}
           </div>
         }
 

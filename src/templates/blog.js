@@ -18,6 +18,7 @@ export const query = graphql`
             node {
               name
               slug
+              uri
             }
           }
         }
@@ -38,11 +39,13 @@ export const query = graphql`
             node {
               name
               slug
+              uri
             }
           }
         }
       }
       posts(
+        first: 6
         where: {
           taxQuery: {
             relation: OR
@@ -118,7 +121,7 @@ const Blog = props => {
               return (
                 <Link
                   key={key}
-                  to={`/in/${edge.node.slug}`}
+                  to={`${edge.node.uri}`}
                   className={blogStyles.category}
                 >
                   {edge.node.name}
@@ -133,7 +136,7 @@ const Blog = props => {
               return (
                 <Link
                   key={key}
-                  to={`/in/${edge.node.slug}`}
+                  to={`${edge.node.uri}`}
                   className={blogStyles.category}
                 >
                   {edge.node.name}

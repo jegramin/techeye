@@ -54,6 +54,9 @@ div:first-child {
   margin: 10px;
   color: white;
 }
+.card:hover {
+  filter: brightness(110%) contrast(110%);
+}
 .card .cardCategory {
   position: absolute;
   display: flex;
@@ -107,7 +110,7 @@ div:first-child {
     margin: 20px 0;
     color: #094067;
   }
-  .header img {
+  .header svg {
     margin-right: 22px;
     height: 25px;
   }

@@ -5,10 +5,17 @@
   align-items: center;
   flex-direction: row-reverse;
 }
-.header > svg {
+.ticker {
+  display: flex;
+  justify-content: space-between;
+}
+.ticker > svg {
   height: 25px;
   width: 25px;
   margin: 3px 8px 0 10px;
+}
+.ticker div {
+  width: 100%;
 }
 .iconsWrapper {
   display: flex;
@@ -33,6 +40,9 @@
 }
 .logoContainer:hover {
   background-color: #094067;
+}
+.logoContainer path {
+  stroke: #094067;
 }
 .burger {
   display: none;
@@ -61,18 +71,36 @@
 @media all and (max-width: 600px) {
   .header {
     grid-column: 1 / -1;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   .logoContainer,
   nav {
     display: none;
+  }
+  .ticker {
+    margin-top: 10px;
   }
   .burger {
     display: flex;
     justify-content: space-between;
     margin: 0;
   }
+  .burger > img {
+    height: 20px;
+    margin: 7px 20px;
+  }
+  .burger a {
+    margin: 0 20px;
+  }
   .iconsWrapper {
     display: none;
+  }
+  .clock {
+    display: none;
+  }
+  .header .titlebar {
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
   }
 }
