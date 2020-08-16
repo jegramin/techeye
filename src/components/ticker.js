@@ -24,9 +24,7 @@ const Ticker = () => {
       <ul>
         {data.wpgraphql.posts.edges.map((edge, key) => (
           <li key={key}>
-            <a href={`http://localhost:8000${edge.node.uri}`}>
-              {edge.node.title}
-            </a>
+            <Link to={edge.node.uri}>{edge.node.title}</Link>
           </li>
         ))}
       </ul>
