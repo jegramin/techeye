@@ -61,7 +61,7 @@ module.exports = {
         // Disable the loading spinner.
         showSpinner: true,
         easing: "ease",
-        speed: 800,
+        speed: 1800,
       },
     },
     // {
