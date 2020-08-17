@@ -122,10 +122,19 @@
     width: 35px;
     height: 35px;
     border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(9, 64, 103, 0.15);
+    box-shadow: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px auto 5px 0px;
+    margin: 0px auto 5px 10px;
+  }
+  .magnifierContainer svg {
+    height: 18px;
+  }
+  .magnifierContainer:hover {
+    background-color: #fff;
+  }
+  .magnifierContainer:hover path {
+    stroke: #094067;
   }
 }

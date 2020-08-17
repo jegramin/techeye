@@ -29,7 +29,7 @@
 @media all and (max-width: 600px) {
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 1fr 650px;
+    grid-template-rows: 100px 1fr 350px;
   }
   .content {
     grid-column: 1 / -1;

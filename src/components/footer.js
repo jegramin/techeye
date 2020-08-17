@@ -64,6 +64,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <p className={footerStyles.copyright}>
+        Copyright © | All Rights Reserved to TechEye
+      </p>
     </footer>
   )
 }

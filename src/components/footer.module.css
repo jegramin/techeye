@@ -88,11 +88,15 @@
 .content > div:first-child p {
   color: #3da9fc !important;
 }
+.copyright {
+  font-size: 12px;
+  margin: 5px;
+}
 
 @media all and (max-width: 600px) {
   .content {
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     text-align: center;
     margin-top: 20px;
     height: 100%;
