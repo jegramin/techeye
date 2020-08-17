@@ -62,8 +62,8 @@ const Header = () => {
           <Ticker />
           <Clock className={headerStyles.clock} />
         </div>
-        <div onClick={() => slidSidebar()} className={headerStyles.burger}>
-          <img src={Burger} />
+        <div className={headerStyles.burger}>
+          <img src={Burger} onClick={() => slidSidebar()} />
           <Link to="/">
             <img src={Logo} />
             <p>TECH EYE</p>
