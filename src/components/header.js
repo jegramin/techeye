@@ -45,13 +45,13 @@ const Header = () => {
       <Modal
         ref={modalRef}
         wrapper={{
-          marginLeft: 0,
+          marginLeft: 30,
           marginRight: 0,
           marginTop: 130,
           position: "fixed",
-          width: "48%",
+          width: "70%",
           zIndex: 20,
-          transform: "translate(-9%, 165px)",
+          transform: "translate(10%, 165px)",
         }}
       >
         {/* {subMenu && <h3>{subMenu.label}</h3>} */}
@@ -64,6 +64,12 @@ const Header = () => {
         </div>
         <div className={headerStyles.burger}>
           <img src={Burger} onClick={() => slidSidebar()} />
+          <div
+            className={headerStyles.magnifierContainer}
+            onClick={() => openModal()}
+          >
+            <Magnifier />
+          </div>
           <Link to="/">
             <img src={Logo} />
             <p>TECH EYE</p>

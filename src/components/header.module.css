@@ -118,4 +118,14 @@
     width: 100%;
     flex-direction: column-reverse;
   }
+  .magnifierContainer {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(9, 64, 103, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto 5px 0px;
+  }
 }

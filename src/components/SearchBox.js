@@ -77,7 +77,7 @@ class SearchBox extends Component {
   render() {
     return (
       <div style={{ marginBottom: "1rem" }}>
-        <input type="search" id="algolia-search-input" placeholder="Search" />
+        <input type="search" id="algolia-search-input" placeholder="گەڕان" />
       </div>
     )
   }
