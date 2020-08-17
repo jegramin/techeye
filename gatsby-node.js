@@ -1,6 +1,6 @@
 const path = require("path")
-
-module.exports.createPages = async ({ graphql, actions }) => {
+const { paginate } = require("gatsby-awesome-pagination")
+module.exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve("./src/templates/blog.js")
   const blogResults = await graphql(`
@@ -42,6 +42,32 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  // const categoryResult = await graphql(`
+  //   query {
+  //     wpgraphql {
+  //       categories(first: 100) {
+  //         edges {
+  //           node {
+  //             slug
+  //             databaseId
+  //             uri
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+
+  // // categoryResult.data.wpgraphql.categories.edges.forEach(edge => {
+  // paginate({
+  //   createPage, // The Gatsby `createPage` function
+  //   items: categoryResult.data.wpgraphql.categories.edges, // An array of objects
+  //   itemsPerPage: 3, // How many items you want per page
+  //   pathPrefix: "/blog", // Creates pages like `/blog`, `/blog/2`, etc
+  //   component: path.resolve("./src/templates/category.js"), // Just like `createPage()`
+  // })
+  // // })
 
   const postsTemplate = path.resolve("./src/templates/category.js")
   const PostsResults = await graphql(`

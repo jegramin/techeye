@@ -53,19 +53,9 @@ export const query = graphql`
 `
 
 const Category = props => {
-  // const [starsCount, setStarsCount] = useState(0)
-  // useEffect(() => {
-  //   // get data from GitHub api
-  //   fetch(`http://localhost:8080/wordpress/wp-json/wp/v2/posts`)
-  //     .then(response => response.json()) // parse JSON from request
-  //     .then(resultData => {
-  //       setStarsCount(resultData)
-  //     }) // set data for the number of stars
-  //   console.log(starsCount)
-  // }, [])
-  // console.log(starsCount)
   const dispatch = useContext(GlobalDispatchContext)
   const state = useContext(GlobalStateContext)
+  const [limit, setLimit] = useState(4)
 
   function engToAr(num) {
     return num.replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d])
@@ -99,9 +89,13 @@ const Category = props => {
       : +" ساتێک لەمەوبەر "
   }
 
+  const postsArr = props.data.wpgraphql.posts.edges.slice(0, `${limit}`)
+  const loadMore = () => {
+    setLimit(limit + 2)
+  }
   let app = ""
   if (state.view === "list") {
-    app = props.data.wpgraphql.posts.edges.map((edge, key) => {
+    app = postsArr.map((edge, key) => {
       return (
         <div key={key}>
           <div className={blogStyles.listWrapper}>
@@ -127,7 +121,7 @@ const Category = props => {
       )
     })
   } else {
-    app = props.data.wpgraphql.posts.edges.map((edge, key) => {
+    app = postsArr.map((edge, key) => {
       return (
         <div key={key} className={blogStyles.wrapper}>
           <div className={blogStyles.cardContainer}>
@@ -189,6 +183,9 @@ const Category = props => {
           <h3>بەشی: {props.data.wpgraphql.category.name} </h3>
         </div>
         <div className={blogStyles.content}>{app}</div>
+        <button className={blogStyles.loadMore} onClick={() => loadMore()}>
+          ئەنجامی زیاتر
+        </button>
       </div>
     </Layout>
   )

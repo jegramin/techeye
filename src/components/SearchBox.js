@@ -48,7 +48,7 @@ class SearchBox extends Component {
       dataset,
       context
     ) {
-      navigate(suggestion.path)
+      navigate(`browse/${suggestion.path}`)
     })
     // autocomplete('#algolia-search-input', { hint: false }, [
     //   {

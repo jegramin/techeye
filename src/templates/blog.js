@@ -106,10 +106,12 @@ const Blog = props => {
                     </div>
                     <img src={authorImage}/>
                 </div> */}
-        <img
-          className={blogStyles.featuredImage}
-          src={props.data.wpgraphql.post.featuredImage.node.sourceUrl}
-        />
+        <div className={blogStyles.imgContainer}>
+          <img
+            className={blogStyles.featuredImage}
+            src={props.data.wpgraphql.post.featuredImage.node.sourceUrl}
+          />
+        </div>
         <div className={blogStyles.contentContainer}>
           <p
             dangerouslySetInnerHTML={{
