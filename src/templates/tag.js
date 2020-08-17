@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import blogStyles from "../styles/blogs.module.css"
@@ -55,6 +55,17 @@ export const query = graphql`
 const Category = props => {
   const dispatch = useContext(GlobalDispatchContext)
   const state = useContext(GlobalStateContext)
+  const [limit, setLimit] = useState(4)
+  const [loadable, setLoadable] = useState(true)
+  useEffect(() => {
+    postsArr.length >= props.data.wpgraphql.posts.edges.length &&
+      setLoadable(false)
+  }, [limit])
+
+  const postsArr = props.data.wpgraphql.posts.edges.slice(0, `${limit}`)
+  const loadMore = () => {
+    setLimit(limit + 2)
+  }
 
   function engToAr(num) {
     return num.replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d])
@@ -90,7 +101,7 @@ const Category = props => {
 
   let app = ""
   if (state.view === "list") {
-    app = props.data.wpgraphql.posts.edges.map((edge, key) => {
+    app = postsArr.map((edge, key) => {
       return (
         <div key={key}>
           <div className={blogStyles.listWrapper}>
@@ -115,7 +126,7 @@ const Category = props => {
       )
     })
   } else {
-    app = props.data.wpgraphql.posts.edges.map((edge, key) => {
+    app = postsArr.map((edge, key) => {
       return (
         <div key={key} className={blogStyles.wrapper}>
           <div className={blogStyles.cardContainer}>
@@ -177,6 +188,14 @@ const Category = props => {
           <h3>تاگی: {props.data.wpgraphql.tag.name} </h3>
         </div>
         <div className={blogStyles.content}>{app}</div>
+        <button
+          className={blogStyles.loadMore}
+          style={{ backgroundColor: !loadable && "#ccc" }}
+          onClick={() => loadMore()}
+          disabled={!loadable && true}
+        >
+          ئەنجامی زیاتر
+        </button>
       </div>
     </Layout>
   )

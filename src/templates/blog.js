@@ -5,6 +5,7 @@ import blogStyles from "../styles/blog.module.css"
 import authorImage from "../images/clock.svg"
 import homeComponents from "../components/relatedArticles.module.css"
 import User from "../images/user.svg"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query($databaseId: ID!, $categoryId: [String], $tagId: [String]) {
@@ -98,6 +99,7 @@ export const query = graphql`
 const Blog = props => {
   return (
     <Layout>
+      <SEO title="Home" />
       <div className={blogStyles.article}>
         <h1>{props.data.wpgraphql.post.title}</h1>
         {/* <div className={blogStyles.author}>

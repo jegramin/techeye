@@ -1,8 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `TechEye`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@techeye`,
+    titleTemplate: "%s · The Real Hero",
+    description:
+      "Hogwarts Potions master, Head of Slytherin house and former Death Eater.",
+    url: "https://www.asse-db.com", // No trailing slash allowed!
+    image: "./src/images/appStore.png", // Path to your image you placed in the 'static' folder
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

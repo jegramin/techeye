@@ -56,6 +56,16 @@ const Category = props => {
   const dispatch = useContext(GlobalDispatchContext)
   const state = useContext(GlobalStateContext)
   const [limit, setLimit] = useState(4)
+  const [loadable, setLoadable] = useState(true)
+  useEffect(() => {
+    postsArr.length >= props.data.wpgraphql.posts.edges.length &&
+      setLoadable(false)
+  }, [limit])
+
+  const postsArr = props.data.wpgraphql.posts.edges.slice(0, `${limit}`)
+  const loadMore = () => {
+    setLimit(limit + 2)
+  }
 
   function engToAr(num) {
     return num.replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d])
@@ -89,10 +99,6 @@ const Category = props => {
       : +" ساتێک لەمەوبەر "
   }
 
-  const postsArr = props.data.wpgraphql.posts.edges.slice(0, `${limit}`)
-  const loadMore = () => {
-    setLimit(limit + 2)
-  }
   let app = ""
   if (state.view === "list") {
     app = postsArr.map((edge, key) => {
@@ -183,7 +189,12 @@ const Category = props => {
           <h3>بەشی: {props.data.wpgraphql.category.name} </h3>
         </div>
         <div className={blogStyles.content}>{app}</div>
-        <button className={blogStyles.loadMore} onClick={() => loadMore()}>
+        <button
+          className={blogStyles.loadMore}
+          style={{ backgroundColor: !loadable && "#ccc" }}
+          onClick={() => loadMore()}
+          disabled={!loadable && true}
+        >
           ئەنجامی زیاتر
         </button>
       </div>
