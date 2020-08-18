@@ -4,6 +4,7 @@ body {
 .gradWrapper {
   display: flex;
   flex-direction: column;
+  overflow-anchor: none;
 }
 .content {
   grid-column: 1 / 10;
@@ -15,7 +16,6 @@ body {
   flex-flow: row wrap;
   /* justify-content: flex-end; */
   min-height: 500px;
-  overflow-anchor: auto;
   /* scroll-behavior: smooth; */
 }
 /* .content::after {
@@ -33,6 +33,7 @@ body {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.808);
   display: flex;
+  direction: ltr;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;

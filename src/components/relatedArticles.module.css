@@ -31,6 +31,7 @@ body {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.808);
   display: flex;
+  direction: ltr;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
