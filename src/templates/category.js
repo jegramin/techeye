@@ -122,7 +122,6 @@ const Category = props => {
             </div>
           </div>
           <br />
-          <br />
         </div>
       )
     })
@@ -188,7 +187,16 @@ const Category = props => {
           </button>
           <h3>بەشی: {props.data.wpgraphql.category.name} </h3>
         </div>
-        <div className={blogStyles.content}>{app}</div>
+        <div
+          className={blogStyles.content}
+          style={{
+            direction: state.view === "list" && "ltr",
+            marginLeft: state.view === "list" && "auto",
+            marginRight: state.view === "list" && 0,
+          }}
+        >
+          {app}
+        </div>
         <button
           className={blogStyles.loadMore}
           style={{ backgroundColor: !loadable && "#ccc" }}

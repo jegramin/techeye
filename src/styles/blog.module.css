@@ -45,7 +45,7 @@ a {
   padding: 10px 10px 5px 10px;
 }
 .author {
-  padding: 20px 0;
+  padding: 10px 0 20px 0;
   display: flex;
   justify-content: flex-end;
   border-top: 1px solid #5f6c7b;
@@ -59,13 +59,14 @@ a {
   height: 70px;
   align-self: center;
   border-radius: 50px;
-  margin-left: 20px;
+  margin: 10px 0 0 20px;
 }
 .author div {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+.author h3,
 h3 {
   text-align: right;
   color: #094067;
