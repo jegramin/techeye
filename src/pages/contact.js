@@ -21,7 +21,7 @@ const Learning = () => {
         dangerouslySetInnerHTML={{
           __html: data.wpgraphql.page.content,
         }}
-      ></p>{" "}
+      ></p>
     </Layout>
   )
 }

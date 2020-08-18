@@ -200,36 +200,6 @@ const Sidebar = () => {
             </div>
           )
         })}
-        {
-          <div>
-            <div
-              className={sidbarStyles.categories}
-              onMouseEnter={() => {
-                // setSubMenu()
-                // closeModal()
-                // setHasModal(false)
-              }}
-            >
-              <div className={sidbarStyles.category}>
-                <div className={sidbarStyles.about}></div>
-                <p>دەربارە</p>
-              </div>
-            </div>
-            <div
-              className={sidbarStyles.categories}
-              onMouseEnter={() => {
-                // setSubMenu()
-                // closeModal()
-                // setHasModal(false)
-              }}
-            >
-              <div className={sidbarStyles.category}>
-                <div className={sidbarStyles.contact}></div>
-                <p>پەیوەندی</p>
-              </div>
-            </div>
-          </div>
-        }
 
         <div className={sidbarStyles.iconsWrapper}>
           <div className={sidbarStyles.logoContainer}>
