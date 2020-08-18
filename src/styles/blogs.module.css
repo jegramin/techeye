@@ -15,7 +15,8 @@ body {
   flex-flow: row wrap;
   /* justify-content: flex-end; */
   min-height: 500px;
-  overflow-anchor: none;
+  overflow-anchor: auto;
+  /* scroll-behavior: smooth; */
 }
 /* .content::after {
     content: "";
