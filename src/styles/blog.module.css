@@ -55,6 +55,9 @@ a {
   margin-bottom: 10px;
 }
 .author img {
+  width: 70px;
+  height: 70px;
+  align-self: center;
   border-radius: 50px;
   margin-left: 20px;
 }

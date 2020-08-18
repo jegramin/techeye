@@ -1,39 +1,31 @@
-.container {
-  /* width: 90%; */
-  margin: 0 0 40px auto;
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "l e a"
-    "b c d";
+body {
+  margin: 0;
 }
-div:first-child {
-  grid-area: l;
-}
-.header {
+.gradWrapper {
   display: flex;
-  justify-content: flex-end;
-  margin: 20px 0;
-  color: #094067;
-  margin-top: 80px;
+  flex-direction: row;
 }
-.header h3 {
-  margin: auto 0px;
-}
-.header img {
-  height: 25px;
-}
-.header a {
-  margin: 0 auto 0 107px;
-}
-.wrapper {
+.content {
+  /* grid-column: 1 / 10; */
   width: 100%;
+  margin: 0 auto 10px 0;
+  display: flex;
+  direction: rtl;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  min-height: 500px;
+}
+/* .content::after {
+    content: "";
+    flex: auto; */
+/* } */
+.cardContainer {
+  margin: 15px 15px;
+  width: 300px;
 }
 .card {
-  margin: auto;
-  width: 100%;
+  /* margin-right: 5px; */
   height: 250px;
   color: white;
   overflow: hidden;
@@ -41,27 +33,88 @@ div:first-child {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  -webkit-transition: -webkit-filter 300ms linear;
+  position: relative;
+  -webkit-transition: -webkit-filter 150ms linear;
 }
 .card * {
   align-self: flex-end;
   margin: 10px;
   color: white;
 }
-.container a:hover .card {
+.cardContainer a:hover .card {
   filter: brightness(110%) contrast(110%);
+}
+.card .cardCategory {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+  /* margin: 10px; */
+}
+
+.cardCategory p {
+  border-radius: 5px;
+  padding: 2px 10px 3px 10px;
+  background-color: #094067;
+  font-size: 12px;
+  color: white;
+  margin: 1px 2px 2px 2px;
+}
+.wrapper {
+  flex: 0 0 33.33333%;
+  /* flex: 1; */
+  /* width: 250px; */
+  margin: 20px 0px;
+  text-align: right;
+}
+.listWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 20px;
+}
+.listWrapper img {
+  width: 300px;
+}
+.listContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 10px 0 30px;
+  text-align: right;
+}
+.listContent h3,
+.listContent p {
+  margin: 5px 0;
 }
 .card h4 {
   margin-bottom: 0;
 }
-.author {
+.read {
+  display: flex;
+  justify-self: flex-end;
+}
+.author p:nth-child(2),
+.listAuthor p:nth-child(2) {
+  margin-left: 20px;
+}
+.author,
+.listAuthor {
   display: flex;
   justify-self: flex-end;
   margin-top: 0;
 }
-.author img {
+.author img,
+.listAuthor img {
   height: 15px;
   margin: 7px 0;
+}
+.listAuthor p {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  color: #5f6c7b;
+  font-size: 14px;
 }
 .author p {
   margin-top: 0px;
@@ -69,32 +122,73 @@ div:first-child {
   color: #eee;
   font-size: 14px;
 }
+.author p:nth-child(2),
+.listAuthor p:nth-child(2) {
+  color: #3da9fc;
+}
+a p {
+  color: #3da9fc;
+}
+.read img {
+  height: 10px;
+  width: 30px;
+  margin-top: 11px;
+}
+.btns {
+  /* margin-right: auto; */
+  /* margin-left: 30px; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btns h3 {
+  margin: 0 0 0 15px;
+}
+button {
+  border-radius: 50px;
+  border: none;
+  height: 22px;
+  width: 22px;
+  outline: none;
+}
+button:first-child {
+  margin-right: 7px;
+}
+button img {
+  height: 10px;
+}
+.loadMore {
+  width: 90px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #3da9fc;
+  color: white;
+  margin: 0 50%;
+}
 
 @media all and (max-width: 600px) {
-  .container {
-    width: 100%;
-    margin: 0 auto;
+  .btns {
+    visibility: hidden;
+  }
+  .gradWrapper {
     display: flex;
     flex-direction: column;
   }
+  .content {
+    grid-column: 1 / -1;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto 40px auto;
+  }
   .card {
-    margin: 15px auto;
+    margin: 0;
+  }
+  .cardContainer {
+    margin: 10px auto;
     width: 100%;
   }
-  .header {
-    display: flex;
-    justify-content: center;
-    margin: 40px 0 10px 0;
-    color: #094067;
-  }
-  .header img {
-    margin-right: 22px;
-    height: 25px;
-  }
-  .header a {
-    margin: 0 auto 0 22px;
-  }
-  .header > img:first-child {
-    margin: 0 auto 0 20px;
+  .wrapper {
+    flex: 1;
+    margin: 15px 0px;
   }
 }

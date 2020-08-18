@@ -10,16 +10,6 @@ import TwitterLogo from "../../assets/icon-twitter.svg"
 import FacebookLogo from "../../assets/icon-facebook.svg"
 import Warn from "../images/warn.svg"
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          author
-        }
-      }
-    }
-  `)
-
   return (
     <footer className={footerStyles.footerWrapper}>
       <div className={footerStyles.content}>

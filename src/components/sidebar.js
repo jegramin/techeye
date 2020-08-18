@@ -205,9 +205,9 @@ const Sidebar = () => {
             <div
               className={sidbarStyles.categories}
               onMouseEnter={() => {
-                setSubMenu()
-                closeModal()
-                setHasModal(false)
+                // setSubMenu()
+                // closeModal()
+                // setHasModal(false)
               }}
             >
               <div className={sidbarStyles.category}>
@@ -218,9 +218,9 @@ const Sidebar = () => {
             <div
               className={sidbarStyles.categories}
               onMouseEnter={() => {
-                setSubMenu()
-                closeModal()
-                setHasModal(false)
+                // setSubMenu()
+                // closeModal()
+                // setHasModal(false)
               }}
             >
               <div className={sidbarStyles.category}>
@@ -228,44 +228,6 @@ const Sidebar = () => {
                 <p>پەیوەندی</p>
               </div>
             </div>
-            {/* <div
-              className={sidbarStyles.categories}
-              style={
-                subMenu && subMenu.label === "گەڕان"
-                  ? { backgroundColor: "rgba(9, 64, 103, 0.03)" }
-                  : {}
-              }
-            >
-              <div
-                className={sidbarStyles.category}
-                onMouseEnter={() => {
-                  setSubMenu({
-                    label: "گەڕان",
-                    search: <Search />,
-                    childItems: { edges: [] },
-                  })
-                  openModal()
-                }}
-                onClick={() => {
-                  setSubMenu({
-                    label: "گەڕان",
-                    search: <Search />,
-                    childItems: { edges: [] },
-                  })
-                  openModal()
-                }}
-              >
-                <div
-                  className={sidbarStyles.search}
-                  style={
-                    subMenu && subMenu.label === "گەڕان"
-                      ? { backgroundColor: "#3DA9FC" }
-                      : {}
-                  }
-                ></div>
-                <p className={sidbarStyles.searchLabel}>گەڕان</p>
-              </div>
-            </div> */}
           </div>
         }
 

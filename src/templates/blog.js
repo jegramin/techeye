@@ -1,11 +1,11 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import blogStyles from "../styles/blog.module.css"
-import authorImage from "../images/clock.svg"
+import authorImage from "../images/user.png"
 import homeComponents from "../components/relatedArticles.module.css"
 import User from "../images/user.svg"
-import SEO from "../components/seo"
+import Helmet from "react-helmet"
 
 export const query = graphql`
   query($databaseId: ID!, $categoryId: [String], $tagId: [String]) {
@@ -14,6 +14,8 @@ export const query = graphql`
         title
         content
         date
+        excerpt
+        link
         tags {
           edges {
             node {
@@ -46,7 +48,6 @@ export const query = graphql`
         }
       }
       posts(
-        first: 6
         where: {
           taxQuery: {
             relation: OR
@@ -93,13 +94,55 @@ export const query = graphql`
         }
       }
     }
+    site {
+      siteMetadata {
+        defaultTitle: title
+        siteUrl: url
+      }
+    }
   }
 `
 
 const Blog = props => {
+  const [limit, setLimit] = useState(4)
+  const [loadable, setLoadable] = useState(true)
+  useEffect(() => {
+    postsArr.length >= props.data.wpgraphql.posts.edges.length &&
+      setLoadable(false)
+  }, [limit])
+
+  const postsArr = props.data.wpgraphql.posts.edges.slice(0, `${limit}`)
+  const loadMore = () => {
+    setLimit(limit + 2)
+  }
+
   return (
     <Layout>
-      <SEO title="Home" />
+      <Helmet title={props.data.wpgraphql.post.title}>
+        {props.data.wpgraphql.post.link && (
+          <meta property="og:url" content={props.data.wpgraphql.post.link} />
+        )}
+
+        {/* {(article ? true : null) && <meta property="og:type" content="article" />} */}
+
+        {props.data.wpgraphql.post.title && (
+          <meta property="og:title" content={props.data.wpgraphql.post.title} />
+        )}
+
+        {props.data.wpgraphql.post.excerpt && (
+          <meta
+            property="og:description"
+            content={props.data.wpgraphql.post.excerpt}
+          />
+        )}
+
+        {props.data.wpgraphql.post.featuredImage.node.sourceUrl && (
+          <meta
+            property="og:image"
+            content={props.data.wpgraphql.post.featuredImage.node.sourceUrl}
+          />
+        )}
+      </Helmet>
       <div className={blogStyles.article}>
         <h1>{props.data.wpgraphql.post.title}</h1>
         {/* <div className={blogStyles.author}>
@@ -159,11 +202,11 @@ const Blog = props => {
               <p>نووسەر</p>
               <h3>{props.data.wpgraphql.post.author.node.name}</h3>
             </div>
-            <img src={authorImage} alt="" />
+            <img src={authorImage} alt="" className={blogStyles.authorImage} />
           </div>
         </Link>
 
-        <div className={homeComponents.wrapper}>
+        <div className={homeComponents.grandWrapper}>
           <div className={homeComponents.header}>
             {/* <Link to={`/category/news`}>
                         <img src={More}/>
@@ -171,13 +214,14 @@ const Blog = props => {
             <h3>بابەتە پەیوەندیدارەکان</h3>
             {/* <img src={Clock}/> */}
           </div>
-          <div className={homeComponents.container}>
-            {props.data.wpgraphql.posts.edges.map(edge => {
+          <div className={homeComponents.content}>
+            {postsArr.map((edge, key) => {
               return (
-                <div key={edge.node.slug}>
+                <div className={homeComponents.cardContainer}>
                   <Link
                     to={`${edge.node.uri}`}
                     style={{ textDecoration: "none", color: "#161616" }}
+                    key={edge.node.slug}
                   >
                     <div
                       className={homeComponents.card}
@@ -189,6 +233,11 @@ const Blog = props => {
                       }}
                     >
                       {/* <p>{edge.node.categories.edges[0].node.name}</p> */}
+                      <div className={homeComponents.cardCategory}>
+                        {edge.node.categories.edges.map((edge, key) => (
+                          <p key={key}>{edge.node.name}</p>
+                        ))}
+                      </div>
                       <h4>{edge.node.title}</h4>
                       <div className={homeComponents.author}>
                         <p>{edge.node.author.node.name}</p>
@@ -200,6 +249,15 @@ const Blog = props => {
               )
             })}
           </div>
+
+          <button
+            className={homeComponents.loadMore}
+            style={{ backgroundColor: !loadable && "#ccc" }}
+            onClick={() => loadMore()}
+            disabled={!loadable && true}
+          >
+            ئەنجامی زیاتر
+          </button>
         </div>
       </div>
     </Layout>

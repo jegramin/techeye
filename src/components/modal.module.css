@@ -23,7 +23,7 @@
 .modalBox {
   /* bottom: 50%; */
   /* left: 50%; */
-  height: 450px;
+  height: 400px;
   overflow-y: auto;
   background-color: rgba(255, 255, 255, 0.75);
   box-shadow: 0 5px 35px rgba(9, 64, 103, 0.1);
