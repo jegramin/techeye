@@ -104,7 +104,7 @@ export const query = graphql`
 `
 
 const Blog = props => {
-  const [limit, setLimit] = useState(4)
+  const [limit, setLimit] = useState(6)
   const [loadable, setLoadable] = useState(true)
   useEffect(() => {
     postsArr.length >= props.data.wpgraphql.posts.edges.length &&
@@ -113,7 +113,7 @@ const Blog = props => {
 
   const postsArr = props.data.wpgraphql.posts.edges.slice(0, `${limit}`)
   const loadMore = () => {
-    setLimit(limit + 2)
+    setLimit(limit + 3)
   }
 
   return (
