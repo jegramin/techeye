@@ -70,7 +70,7 @@ body {
   /* width: 250px; */
   margin: 13px 0px;
   text-align: right;
-  overflow-anchor: auto;
+  overflow-anchor: none;
 }
 .listWrapper {
   display: flex;
